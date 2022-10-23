@@ -19,6 +19,8 @@
         <div class="menu-usuario">
             <button id="username" class="boton-usuario">Administración</button>
             <div class="menu-usuario-opciones">
+              <a onclick="gestionarUsuarios();">Usuarios</a>
+              <a onclick="gestionarAdmins();">Administradores</a>
               <a onclick="cerrarSesion();">Cerrar sesión</a>
             </div>
         </div>

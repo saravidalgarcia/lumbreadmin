@@ -8,12 +8,12 @@ class Usuario extends BD
 	private function get_usuarios_BD()
 	{
 		try {
-			$SQL = "SELECT * FROM usuario";
+			$SQL = "SELECT id,username,email FROM usuario";
 			$result = $this->connect()->prepare($SQL);
 			$result->execute();
 			return $result->fetchAll(PDO::FETCH_OBJ);
 		} catch (Exception $e) {
-			die('Error: Usuario(ver_usuarios) ' . $e->getMessage());
+			die('Error: Usuario(get_usuarios) ' . $e->getMessage());
 		} finally {
 			$result = null;
 		}
@@ -26,23 +26,15 @@ class Usuario extends BD
 
 
 	//Crear usuario
-	//Nota: la contraseña por defecto es "LUMBRE"
 	private function crear_usuario_BD($data)
 	{
-		$password = 'LUMBRE';
-		$options = [
-			'memory_cost' => 1024,
-			'time_cost'   => 1,
-			'threads'     => 1,
-		];
-		$hash = password_hash($password, PASSWORD_ARGON2ID, $options);
 		try {
 			$SQL = 'INSERT INTO usuario (username,email,passwd) VALUES (?,?,?)';
 			$result = $this->connect()->prepare($SQL);
 			$result->execute(array(
 				$data['username'],
 				$data['email'],
-				$hash
+				$data['passwd']
 			));
 		} catch (Exception $e) {
 			die('Error: Usuario(crear_usuario) ' . $e->getMessage());

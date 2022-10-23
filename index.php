@@ -3,9 +3,16 @@ session_start();
 require_once 'core/core.php';
 
 //Si el usuario administrador está autenticado, se utiliza el
-//controlador de usuarios, en caso contrario el de autenticación
+//controlador de usuarios o administradores según corresponda, 
+//y en caso contrario el de autenticación
 if (isset($_SESSION['auth'])) {
-    $controlador = 'UsuarioController';
+    if(isset($_SESSION['c'])){
+        $controlador = $_SESSION['c'];
+    }
+    else{
+        $controlador = 'Usuario';
+    }
+    $controlador .= 'Controller';
 } else {
     $controlador = 'AutenticacionController';
 }
@@ -36,4 +43,3 @@ if (method_exists($controlador, $metodo)) {
 } else {
     die("Error: El metodo '{$metodo}' no existe.");
 }
-?>

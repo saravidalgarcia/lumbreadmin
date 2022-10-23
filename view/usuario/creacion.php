@@ -4,9 +4,9 @@
 </div>
 <div class="div-form">
     <form name="formCrearUsuario" onsubmit="crearUsuario(); return false">
-        <input id="username" type="text" class="form-control" name="username" placeholder="Nombre de usuario" required autocomplete="off">
+        <input id="username" type="text" name="username" placeholder="Nombre de usuario" required autocomplete="off">
         <br>
-        <input id="email" type="email" class="form-control" name="email" placeholder="Email" required autocomplete="off">
+        <input id="email" type="email" name="email" placeholder="Email" required autocomplete="off">
         <br>
         <div class="botones">
             <button class="boton boton-admin" type="submit">Crear</button>

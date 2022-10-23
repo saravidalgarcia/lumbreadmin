@@ -6,7 +6,7 @@ function verUsuarios() {
 		type: 'GET',
 		url: '?m=set_usuarios',
 		success: function (response) {
-			$("#info-usuarios").html(response);
+			$("#listado").html(response);
 		}
 	});
 }
@@ -31,9 +31,9 @@ function validarDatos(username, email) {
 							resolve(false);
 							return;
 						}
-						document.getElementById("mensaje-feedback").innerHTML = "";
-						resolve(true);
 					}
+					document.getElementById("mensaje-feedback").innerHTML = "";
+					resolve(true);
 			},
 			error: function (err) {
 				reject(err);
@@ -124,7 +124,7 @@ function getCreacion() {
 		type: 'GET',
 		url: '?m=creacion',
 		success: function (response) {
-			$("#info-usuarios").html(response);
+			$("#listado").html(response);
 		}
 	});
 }
@@ -134,7 +134,7 @@ function getActualizacion(id, username, email) {
 		type: 'GET',
 		url: '?m=actualizacion&id=' + id + '&username=' + username + '&email=' + email,
 		success: function (response) {
-			$("#info-usuarios").html(response);
+			$("#listado").html(response);
 		}
 	});
 }
@@ -146,6 +146,28 @@ function cerrarSesion() {
 	$.ajax({
 		type: 'GET',
 		url: '?m=cerrar_sesion',
+		success: function () {
+			location.reload();
+		}
+	});
+}
+
+//Carga del controlador apropiado
+
+function gestionarUsuarios() {
+	$.ajax({
+		type: 'GET',
+		url: '?m=usuarios',
+		success: function () {
+			location.reload();
+		}
+	});
+}
+
+function gestionarAdmins() {
+	$.ajax({
+		type: 'GET',
+		url: '?m=admins',
 		success: function () {
 			location.reload();
 		}

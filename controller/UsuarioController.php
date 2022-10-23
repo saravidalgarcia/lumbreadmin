@@ -7,21 +7,21 @@ class UsuarioController extends Usuario
 	//Función que carga la vista general
 	function index()
 	{
-		require_once('view/header.php');
-		require_once('view/usuarios.php');
-		require_once('view/footer.php');
+		require_once('view/general/header.php');
+		require_once('view/general/main.php');
+		require_once('view/usuario/footer.php');
 	}
 
 	//Función que carga la vista para el formulario de creación de usuario
 	function creacion()
 	{
-		require_once('view/crearusuario.php');
+		require_once('view/usuario/creacion.php');
 	}
 
 	//Función que carga la vista para el formulario de edición de usuario
 	function actualizacion($id, $username, $email)
 	{
-		require_once('view/updateusuario.php');
+		require_once('view/usuario/edicion.php');
 		?>
 		<script type="text/javascript">
 			document.formUpdateUsuario.id.value = "<?php echo $id; ?>";
@@ -34,11 +34,20 @@ class UsuarioController extends Usuario
 	}
 
 	//Función que llama al modelo para crear un usuario dados su username y email
+	//Nota: La contraseña por defecto es "LUMBRE"
 	function crear_usuario()
 	{
+		$password = 'LUMBRE';
+		$options = [
+			'memory_cost' => 1024,
+			'time_cost'   => 1,
+			'threads'     => 1,
+		];
+		$hash = password_hash($password, PASSWORD_ARGON2ID, $options);
 		$data = array(
 			'username' => $_REQUEST['username'],
-			'email' => $_REQUEST['email']
+			'email' => $_REQUEST['email'],
+			'passwd' => $hash
 		);
 		parent::crear_usuario_modelo($data);
 	}
@@ -60,13 +69,6 @@ class UsuarioController extends Usuario
 		parent::delete_usuario_modelo($_REQUEST['id']);
 	}
 
-	//Función que cierra la sesión del administrador
-	function cerrar_sesion()
-	{
-		session_unset();
-		session_destroy();
-	}
-
 	//Función que obtiene, en formato JSON, el username y el email de todos los usuarios
 	function get_usuarios()
 	{
@@ -84,7 +86,7 @@ class UsuarioController extends Usuario
 	//Función que obtiene la información de los usuarios y introduce en una tabla
 	function set_usuarios()
 	{
-		require_once('view/verusuarios.php');
+		require_once('view/usuario/listado.php');
 		$data = parent::get_usuarios_modelo();
 		if (count($data) > 0) {
 		?>
@@ -123,6 +125,25 @@ class UsuarioController extends Usuario
 			<p class="mensaje">No hay usuarios registrados en el sistema</p>
 		<?php
 		}
+	}
+
+	//Función que cierra la sesión del administrador
+	function cerrar_sesion()
+	{
+		session_unset();
+		session_destroy();
+	}
+
+	//Función que establece la variable de sesión para usar el AdministradorController
+	function admins()
+	{
+		$_SESSION['c'] = "Administrador";
+	}
+
+	//Función que establece la variable de sesión para usar el UsuarioController
+	function usuarios()
+	{
+		$_SESSION['c'] = "Usuario";
 	}
 }
 ?>

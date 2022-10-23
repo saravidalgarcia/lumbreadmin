@@ -225,6 +225,7 @@ header img{
     width:100%;
     padding: 20px;
     padding-right: 30px;
+    flex-grow: 1;
 }
 
 .cabecera-info{
@@ -256,25 +257,24 @@ header img{
     margin: 5px;
 }
 
-
-.info-admin{
-    flex-grow: 1;
-}
-
-.info-admin > *{
+.info > *{
     align-items: center;
     justify-content: center;
 }
 
-.usuarios{
+.listado{
     display:flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
 }
 
-.usuarios > *{
+.listado > *{
     margin-bottom: 20px;
+}
+
+.listado button:hover{
+    color: var(--font-color);
 }
 
 /* Tabla */
