@@ -24,7 +24,10 @@ CREATE TABLE info_contacto(
     administrador BIGINT NOT NULL,
     --
     CONSTRAINT pk_contacto PRIMARY KEY (id),
-    CONSTRAINT fk_contacto_administrador FOREIGN KEY (administrador) REFERENCES administrador(id) 
+    CONSTRAINT fk_contacto_administrador 
+    FOREIGN KEY (administrador) 
+    REFERENCES administrador(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE usuario(
