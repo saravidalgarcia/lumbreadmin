@@ -18,9 +18,21 @@
         <br>
         <input id="passwd2" type="password" name="passwd2" placeholder="Repetir contraseña" required autocomplete="off">
         <br>
+        <p>Información de contacto:</p>
+        <br>
+        <input id="telefono" type="text" name="telefono" placeholder="Teléfono" autocomplete="off">
+        <br>
+        <input id="direccion" type="text" name="direccion" placeholder="Dirección" autocomplete="off">
+        <br>
+        <input id="poblacion" type="text" name="poblacion" placeholder="Población" autocomplete="off">
+        <br>
+        <input id="cp" type="text" name="cp" placeholder="CP" autocomplete="off">
+        <br>
+        <input id="pais" type="text" name="pais" placeholder="País" autocomplete="off">
+        <br>
         <div class="botones">
             <button class="boton boton-admin" type="submit">Crear</button>
-            <button class="boton boton-admin" type="button" onclick="verUsuarios();">Volver</button>
+            <button class="boton boton-admin" type="button" onclick="verAdmins();">Volver</button>
         </div>
     </form>
     <p id="mensaje-feedback" class="mensaje-feedback"></p>

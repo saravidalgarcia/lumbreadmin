@@ -34,7 +34,12 @@ class AdministradorController extends Administrador
 			'apellidos' => $_REQUEST['apellidos'],
 			'username' => $_REQUEST['username'],
 			'email' => $_REQUEST['email'],
-			'passwd' => $hash
+			'passwd' => $hash,
+			'telefono' => $_REQUEST['telefono'],
+			'direccion' => $_REQUEST['direccion'],
+			'poblacion' => $_REQUEST['poblacion'],
+			'cp' => $_REQUEST['cp'],
+			'pais' => $_REQUEST['pais']
 		);
 		parent::crear_admin_modelo($data);
 	}
@@ -74,6 +79,8 @@ class AdministradorController extends Administrador
 						<th scope="col">Nombre</th>
 						<th scope="col">Username</th>
 						<th scope="col">Email</th>
+						<th scope="col">Teléfono</th>
+						<th scope="col">Dirección</th>
 						<th scope="col">Opciones</th>
 					</tr>
 				</thead>
@@ -86,6 +93,22 @@ class AdministradorController extends Administrador
 							<td><?php echo ($data->nombre . ' ' . $data->apellidos); ?> </td>
 							<td><?php echo $data->username; ?> </td>
 							<td><?php echo $data->email; ?> </td>
+							<td><?php echo $data->telefono; ?> </td>
+							<td class="smaller"><?php 
+								$completo = '-';
+								$direccion = $data->direccion;
+								$poblacion = $data->poblacion;
+								$cp = $data->cp;
+								$pais = $data->pais;
+								if ($direccion != null)
+									$completo = $direccion;
+								if ($poblacion != null)
+									$completo .= ', '.$poblacion;
+								if ($cp != null)
+									$completo .= ', '.$cp;
+								if ($pais != null)
+									$completo .= ' ('.$pais.')';
+								echo $completo; ?> </td>
 							<td>
 								<div>
 									<button onclick="deleteAdmin('<?php echo $data->id; ?>');">Borrar</button>

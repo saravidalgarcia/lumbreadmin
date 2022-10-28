@@ -30,7 +30,7 @@ class Administrador extends BD
 	private function get_admins_BD()
 	{
 		try {
-			$SQL = "SELECT id,username,dni,nombre,apellidos,email FROM administrador";
+			$SQL = "SELECT a.id,username,dni,nombre,apellidos,email,telefono,direccion,poblacion,cp,pais FROM administrador a JOIN info_contacto i ON a.id = i.administrador";
 			$result = $this->connect()->prepare($SQL);
 			$result->execute();
 			return $result->fetchAll(PDO::FETCH_OBJ);
@@ -50,6 +50,7 @@ class Administrador extends BD
 	private function crear_admin_BD($data)
 	{
 		try {
+			//Se inserta su información básica
 			$SQL = 'INSERT INTO administrador (nombre, apellidos, dni, email, username, passwd) VALUES (?,?,?,?,?,?)';
 			$result = $this->connect()->prepare($SQL);
 			$result->execute(array(
@@ -60,6 +61,23 @@ class Administrador extends BD
 				$data['username'],
 				$data['passwd']
 			));
+			//Se obtiene su id
+			$nuevo = $this->login_BD($data['username']);
+			if (count($nuevo) == 0)
+				echo "Error: No se ha podido insertar la información de contacto (Error al determinar el id de administrador)";
+			else{
+				$id = $nuevo[0]->id;
+				$SQL = 'INSERT INTO info_contacto (telefono,direccion,poblacion,cp,pais,administrador) VALUES (?,?,?,?,?,?)';
+				$result = $this->connect()->prepare($SQL);
+				$result->execute(array(
+					$data['telefono'],
+					$data['direccion'],
+					$data['poblacion'],
+					$data['cp'],
+					$data['pais'],
+					$id
+				));
+			}
 		} catch (Exception $e) {
 			die('Error: Administrador(crear_admin) ' . $e->getMessage());
 		} finally {

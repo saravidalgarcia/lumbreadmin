@@ -14,14 +14,17 @@ CREATE TABLE administrador(
     CONSTRAINT pk_admin PRIMARY KEY (id)
 );
 
-INSERT INTO administrador(nombre,apellidos,dni,email,username,passwd) VALUES(
-"Administración",
-" ",
-"-",
-"admin@lumbre.es",
-"admin",
--- La contraseña es 'admin'
-"$argon2id$v=19$m=1024,t=1,p=1$Z3V0Zi9HSmk0NWx5eGJ4cw$osafLVXNnd/w6vgKprzeA7tjXxbB8DRfl2u8q16nG3Q"
+CREATE TABLE info_contacto(
+	id BIGINT NOT NULL auto_increment,
+    telefono VARCHAR(25),
+    direccion VARCHAR(255),
+    poblacion VARCHAR(50),
+    cp VARCHAR(10),
+    pais VARCHAR(50),
+    administrador BIGINT NOT NULL,
+    --
+    CONSTRAINT pk_contacto PRIMARY KEY (id),
+    CONSTRAINT fk_contacto_administrador FOREIGN KEY (administrador) REFERENCES administrador(id) 
 );
 
 CREATE TABLE usuario(
@@ -99,6 +102,20 @@ CREATE TABLE personaje_campanha(
     CONSTRAINT pk_personaje_campanha PRIMARY KEY (personaje,campanha),
     CONSTRAINT fk_personaje_campanha FOREIGN KEY (personaje) REFERENCES personaje(id),
     CONSTRAINT fk_campanha_personaje FOREIGN KEY (campanha) REFERENCES campanha(id)
+);
+
+INSERT INTO administrador(nombre,apellidos,dni,email,username,passwd) VALUES(
+"Administración",
+" ",
+"-",
+"admin@lumbre.es",
+"admin",
+-- La contraseña es 'admin'
+"$argon2id$v=19$m=1024,t=1,p=1$Z3V0Zi9HSmk0NWx5eGJ4cw$osafLVXNnd/w6vgKprzeA7tjXxbB8DRfl2u8q16nG3Q"
+);
+
+INSERT INTO info_contacto(telefono,direccion,poblacion,cp,pais,administrador) VALUES(
+"+34600000000","C/ Desarrollo de Aplicaciones Web, 22","Ferrol","15406","España",1
 );
 
 INSERT INTO raza(denominacion,tipo,descripcion) VALUES 

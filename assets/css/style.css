@@ -282,7 +282,6 @@ table{
     text-align: center;
     border-spacing:0;
     width:100%;
-    max-width: 700px;
 }
 
 th, td{
@@ -316,4 +315,8 @@ tbody tr:hover
 {
     background-color: var(--font-color-dark);
     color: white;
+}
+
+tbody td.smaller{
+    font-size: 0.7em;
 }

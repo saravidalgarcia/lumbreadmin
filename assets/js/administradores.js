@@ -93,6 +93,11 @@ function crearAdmin() {
 	let email = document.formCrearAdmin.email.value;
     let passwd = document.formCrearAdmin.passwd.value;
 	let passwd2 = document.formCrearAdmin.passwd2.value;
+	let telefono = document.formCrearAdmin.telefono.value;
+	let direccion = document.formCrearAdmin.direccion.value;
+	let poblacion = document.formCrearAdmin.poblacion.value;
+	let cp = document.formCrearAdmin.cp.value;
+	let pais = document.formCrearAdmin.pais.value;
 	if (!validarDNI(dni)){
 		document.formCrearAdmin.dni.focus();
 		return;
@@ -106,7 +111,7 @@ function crearAdmin() {
 			let xhr = new XMLHttpRequest();
 			xhr.open("POST", "?m=crear_admin", true);
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xhr.send("username=" + username + "&email=" + email+ "&dni=" + dni+ "&nombre=" + nombre+ "&apellidos=" + apellidos+ "&passwd=" + passwd);
+			xhr.send("username=" + username + "&email=" + email+ "&dni=" + dni+ "&nombre="+ nombre+ "&apellidos=" + apellidos+ "&passwd=" + passwd+ "&telefono=" + telefono+ "&direccion=" + direccion+ "&poblacion=" + poblacion+ "&cp=" + cp+ "&pais=" + pais);
 			xhr.addEventListener("readystatechange", (e) => {
 				if (xhr.readyState !== 4) return;
 				if (xhr.status >= 200 && xhr.status < 300) {
