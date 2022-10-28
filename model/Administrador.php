@@ -90,6 +90,32 @@ class Administrador extends BD
 		$this->crear_admin_BD($data);
 	}
 
+	//Actualizar información de contacto de un administrador
+	private function update_contacto_BD($data)
+	{
+		try {
+			$SQL = 'UPDATE info_contacto SET telefono = ?, direccion = ?, poblacion = ?, cp = ?, pais = ? WHERE administrador = ?';
+			$result = $this->connect()->prepare($SQL);
+			$result->execute(array(
+				$data['telefono'],
+				$data['direccion'],
+				$data['poblacion'],
+				$data['cp'],
+				$data['pais'],
+				$data['id']
+			));
+		} catch (Exception $e) {
+			die('Error: Administrador(update_contacto) ' . $e->getMessage());
+		} finally {
+			$result = null;
+		}
+	}
+
+	function update_contacto_modelo($data)
+	{
+		$this->update_contacto_BD($data);
+	}
+
 	//Borrar administrador
 	private function delete_admin_BD($id)
 	{

@@ -128,6 +128,29 @@ function crearAdmin() {
 	})
 }
 
+function updateContacto() {
+	id = document.formUpdateContacto.id.value;
+	telefono = document.formUpdateContacto.telefono.value;
+	direccion = document.formUpdateContacto.direccion.value;
+	poblacion = document.formUpdateContacto.poblacion.value;
+	cp = document.formUpdateContacto.cp.value;
+	pais = document.formUpdateContacto.pais.value;
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", "?m=update_contacto", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send("id=" + id + "&telefono=" + telefono + "&direccion=" + direccion + "&poblacion=" + poblacion + "&cp=" + cp + "&pais=" + pais);
+	xhr.addEventListener("readystatechange", (e) => {
+		if (xhr.readyState !== 4) return;
+		if (xhr.status >= 200 && xhr.status < 300) {
+			verAdmins();
+			alert('La información de contacto se ha actualizado correctamente.');
+		}
+		else {
+			console.log("Error " + xhr.status);
+		}
+	});
+}
+
 function deleteAdmin(id) {
 	if(id == "1")
 		alert("No se puede eliminar la cuenta de administración por defecto.");
@@ -162,6 +185,20 @@ function getCreacion() {
 	});
 }
 
+function getContacto(id, telefono, direccion, poblacion, cp, pais) {
+	if(id == "1")
+		alert("No se puede modificar la información de la cuenta de administración por defecto.");
+	else{
+		$.ajax({
+			type: 'GET',
+			url: '?m=contacto&id=' + id + '&telefono=' + telefono + '&direccion=' 
+			+ direccion + '&poblacion=' + poblacion + '&cp=' + cp + '&pais=' + pais,
+			success: function (response) {
+				$("#listado").html(response);
+			}
+		});
+	}
+}
 
 //Cierre de sesión
 

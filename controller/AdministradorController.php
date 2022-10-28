@@ -18,6 +18,21 @@ class AdministradorController extends Administrador
 		require_once('view/administrador/creacion.php');
 	}
 
+	function contacto($id, $telefono, $direccion, $poblacion, $cp, $pais)
+	{
+		require_once('view/administrador/edicion.php');
+		?>
+		<script type="text/javascript">
+			document.formUpdateContacto.id.value = "<?php echo $id; ?>";
+			document.formUpdateContacto.telefono.value = "<?php echo $telefono; ?>";
+			document.formUpdateContacto.direccion.value = "<?php echo $direccion; ?>";
+			document.formUpdateContacto.poblacion.value = "<?php echo $poblacion; ?>";
+			document.formUpdateContacto.cp.value = "<?php echo $cp; ?>";
+			document.formUpdateContacto.pais.value = "<?php echo $pais; ?>";
+		</script>
+		<?php
+	}
+
 	//Función que llama al modelo para crear un administrador
 	function crear_admin()
 	{
@@ -42,6 +57,20 @@ class AdministradorController extends Administrador
 			'pais' => $_REQUEST['pais']
 		);
 		parent::crear_admin_modelo($data);
+	}
+
+	//Función que llama al modelo para actualizar la información de contacto de un administrador
+	function update_contacto()
+	{
+		$data = array(
+			'id' => $_REQUEST['id'],
+			'telefono' => $_REQUEST['telefono'],
+			'direccion' => $_REQUEST['direccion'],
+			'poblacion' => $_REQUEST['poblacion'],
+			'cp' => $_REQUEST['cp'],
+			'pais' => $_REQUEST['pais']
+		);
+		parent::update_contacto_modelo($data);
 	}
 
 	//Función que llama al modelo para eliminar un administrador dado su id
@@ -111,6 +140,12 @@ class AdministradorController extends Administrador
 								echo $completo; ?> </td>
 							<td>
 								<div>
+									<button onclick="getContacto('<?php echo $data->id; ?>',
+									'<?php echo $data->telefono; ?>',
+									'<?php echo $data->direccion; ?>',
+									'<?php echo $data->poblacion; ?>',
+									'<?php echo $data->cp; ?>',
+									'<?php echo $data->pais; ?>');">Actualizar contacto</button>
 									<button onclick="deleteAdmin('<?php echo $data->id; ?>');">Borrar</button>
 								</div>
 							</td>

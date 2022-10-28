@@ -36,9 +36,20 @@ if (method_exists($controlador, $metodo)) {
             $email = isset($_GET['email']) ? $_GET['email'] : null;
             call_user_func([$controlador, $metodo], $id, $username, $email);
         }
-        //El resto de métodos se llaman sin parámetros
-        else
-            call_user_func([$controlador, $metodo]);
+        else{
+            if ($metodo == "contacto") {
+                $id = isset($_GET['id']) ? $_GET['id'] : null;
+                $telefono = isset($_GET['telefono']) ? $_GET['telefono'] : null;
+                $direccion = isset($_GET['direccion']) ? $_GET['direccion'] : null;
+                $poblacion = isset($_GET['poblacion']) ? $_GET['poblacion'] : null;
+                $cp = isset($_GET['cp']) ? $_GET['cp'] : null;
+                $pais = isset($_GET['pais']) ? $_GET['pais'] : null;
+                call_user_func([$controlador, $metodo], $id, $telefono, $direccion, $poblacion, $cp, $pais);
+            }
+            //El resto de métodos se llaman sin parámetros
+            else
+                call_user_func([$controlador, $metodo]);
+        }
     }
 } else {
     die("Error: El metodo '{$metodo}' no existe.");
