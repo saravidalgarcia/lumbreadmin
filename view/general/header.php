@@ -13,12 +13,11 @@
     <title>Lumbre - Administración</title>
 </head>
 <body>
-    <header>
-        <img id="logo" src="assets/img/logo.png" title="LUMBRE" alt="Logo de LUMBRE">
-        <br>
-        <div class="menu-usuario">
-            <button id="username" class="boton-usuario">Administración</button>
-            <div class="menu-usuario-opciones">
+    <header class="cabecera">
+        <div class="lumbre" onclick="gestionarUsuarios();" title="LUMBRE" alt="Logo de LUMBRE"></div>
+        <div class="menu-cabecera">
+            <button id="username" class="boton-cabecera">Administración</button>
+            <div class="menu-cabecera-opciones">
               <a onclick="gestionarUsuarios();">Usuarios</a>
               <a onclick="gestionarAdmins();">Administradores</a>
               <a onclick="cerrarSesion();">Cerrar sesión</a>

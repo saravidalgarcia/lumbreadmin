@@ -8,7 +8,7 @@ class Administrador extends BD
 	private function login_BD($username)
 	{
 		try {
-			$SQL = "SELECT * FROM administrador WHERE username = ?";
+			$SQL = "SELECT * FROM empleado WHERE username = ?";
 			$result = $this->connect()->prepare($SQL);
 			$result->execute(array(
 				$username
@@ -30,7 +30,7 @@ class Administrador extends BD
 	private function get_admins_BD()
 	{
 		try {
-			$SQL = "SELECT a.id,username,dni,nombre,apellidos,email,telefono,direccion,poblacion,cp,pais FROM administrador a JOIN info_contacto i ON a.id = i.administrador";
+			$SQL = "SELECT a.id,username,dni,nombre,apellidos,email,telefono,direccion,poblacion,cp,pais FROM empleado a JOIN info_contacto b ON a.id = b.empleado";
 			$result = $this->connect()->prepare($SQL);
 			$result->execute();
 			return $result->fetchAll(PDO::FETCH_OBJ);
@@ -51,7 +51,7 @@ class Administrador extends BD
 	{
 		try {
 			//Se inserta su información básica
-			$SQL = 'INSERT INTO administrador (nombre, apellidos, dni, email, username, passwd) VALUES (?,?,?,?,?,?)';
+			$SQL = 'INSERT INTO empleado (nombre, apellidos, dni, email, username, passwd) VALUES (?,?,?,?,?,?)';
 			$result = $this->connect()->prepare($SQL);
 			$result->execute(array(
 				$data['nombre'],
@@ -64,10 +64,10 @@ class Administrador extends BD
 			//Se obtiene su id
 			$nuevo = $this->login_BD($data['username']);
 			if (count($nuevo) == 0)
-				echo "Error: No se ha podido insertar la información de contacto (Error al determinar el id de administrador)";
+				echo "Error: No se ha podido insertar la información de contacto (Error al determinar el id de empleado)";
 			else{
 				$id = $nuevo[0]->id;
-				$SQL = 'INSERT INTO info_contacto (telefono,direccion,poblacion,cp,pais,administrador) VALUES (?,?,?,?,?,?)';
+				$SQL = 'INSERT INTO info_contacto (telefono,direccion,poblacion,cp,pais,empleado) VALUES (?,?,?,?,?,?)';
 				$result = $this->connect()->prepare($SQL);
 				$result->execute(array(
 					$data['telefono'],
@@ -94,7 +94,7 @@ class Administrador extends BD
 	private function update_contacto_BD($data)
 	{
 		try {
-			$SQL = 'UPDATE info_contacto SET telefono = ?, direccion = ?, poblacion = ?, cp = ?, pais = ? WHERE administrador = ?';
+			$SQL = 'UPDATE info_contacto SET telefono = ?, direccion = ?, poblacion = ?, cp = ?, pais = ? WHERE empleado = ?';
 			$result = $this->connect()->prepare($SQL);
 			$result->execute(array(
 				$data['telefono'],
@@ -120,7 +120,7 @@ class Administrador extends BD
 	private function delete_admin_BD($id)
 	{
 		try {
-			$SQL = 'DELETE FROM administrador WHERE id = ?';
+			$SQL = 'DELETE FROM empleado WHERE id = ?';
 			$result = $this->connect()->prepare($SQL);
 			$result->execute(array($id));
 		} catch (Exception $e) {

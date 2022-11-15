@@ -104,10 +104,10 @@ class UsuarioController extends Usuario
 					foreach (parent::get_usuarios_modelo()	as $data) {
 					?>
 						<tr>
-							<td><?php echo $data->id; ?> </td>
-							<td><?php echo $data->username; ?> </td>
-							<td><?php echo $data->email; ?> </td>
-							<td>
+							<td class="user-table"><?php echo $data->id; ?> </td>
+							<td class="user-table"><?php echo $data->username; ?> </td>
+							<td class="user-table"><?php echo $data->email; ?> </td>
+							<td class="user-table">
 								<div>
 									<button onclick="getActualizacion('<?php echo $data->id; ?>','<?php echo $data->username; ?>','<?php echo $data->email; ?> ');">Actualizar</button>
 									<button onclick="deleteUsuario('<?php echo $data->id; ?>');">Borrar</button>

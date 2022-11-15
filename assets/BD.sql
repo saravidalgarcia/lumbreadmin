@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS lumbre;
 CREATE DATABASE lumbre;
 USE lumbre;
 
-CREATE TABLE administrador(
+CREATE TABLE empleado(
 	id BIGINT NOT NULL auto_increment,
     nombre VARCHAR(50) NOT NULL,
     apellidos VARCHAR(255) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE administrador(
     username VARCHAR(255) NOT NULL UNIQUE,
     passwd VARCHAR(255) NOT NULL,
     --
-    CONSTRAINT pk_admin PRIMARY KEY (id)
+    CONSTRAINT pk_empleado PRIMARY KEY (id)
 );
 
 CREATE TABLE info_contacto(
@@ -21,12 +21,12 @@ CREATE TABLE info_contacto(
     poblacion VARCHAR(50),
     cp VARCHAR(10),
     pais VARCHAR(50),
-    administrador BIGINT NOT NULL,
+    empleado BIGINT NOT NULL,
     --
     CONSTRAINT pk_contacto PRIMARY KEY (id),
-    CONSTRAINT fk_contacto_administrador 
-    FOREIGN KEY (administrador) 
-    REFERENCES administrador(id)
+    CONSTRAINT fk_contacto_empleado 
+    FOREIGN KEY (empleado) 
+    REFERENCES empleado(id)
     ON DELETE CASCADE
 );
 
@@ -107,7 +107,7 @@ CREATE TABLE personaje_campanha(
     CONSTRAINT fk_campanha_personaje FOREIGN KEY (campanha) REFERENCES campanha(id)
 );
 
-INSERT INTO administrador(nombre,apellidos,dni,email,username,passwd) VALUES(
+INSERT INTO empleado(nombre,apellidos,dni,email,username,passwd) VALUES(
 "Administración",
 " ",
 "-",
@@ -117,7 +117,7 @@ INSERT INTO administrador(nombre,apellidos,dni,email,username,passwd) VALUES(
 "$argon2id$v=19$m=1024,t=1,p=1$Z3V0Zi9HSmk0NWx5eGJ4cw$osafLVXNnd/w6vgKprzeA7tjXxbB8DRfl2u8q16nG3Q"
 );
 
-INSERT INTO info_contacto(telefono,direccion,poblacion,cp,pais,administrador) VALUES(
+INSERT INTO info_contacto(telefono,direccion,poblacion,cp,pais,empleado) VALUES(
 "+34600000000","C/ Desarrollo de Aplicaciones Web, 22","Ferrol","15406","España",1
 );
 

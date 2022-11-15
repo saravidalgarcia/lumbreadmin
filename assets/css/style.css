@@ -1,6 +1,16 @@
-*{
-    margin:0;
-    padding:0;
+@charset "UTF-8";
+/*
+ *  Lumbre - Hoja de estilos
+ *
+ *  Sara Vidal García
+ *
+ */
+
+/* --- General --- */
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -9,38 +19,28 @@
     --font-color: #ffa202;
     --font-color-soft: rgb(255, 162, 2, 0.3);
     --font-color-dark: #ad5c00;
-  }
-
-html,body{
-    width:100%;
-    min-height:100vh;
 }
 
-body{
-    display:flex;
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
     flex-flow: column nowrap;
     background-color: white;
 }
 
-/* Footer */
-footer{
-    text-align: center;
-    background-color: black;
-    color: var(--font-color);
-    height: 60px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Cuerpo */ 
-
-main{
+main {
     flex-grow: 1;
+    margin: 0 20px;
 }
 
 button{
     margin-left: 20px;
+    margin-bottom: 5px;
     padding: 5px 10px;
     background-color: black;
     color: white;
@@ -61,15 +61,107 @@ button.boton{
     color: white;
 }
 
-/* Administración */
-.administracion{
+/* --- Cabecera --- */
+
+header.cabecera {
+    width: 100%;
+    background-color: black;
+    height: 80px;
     display:flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header.cabecera > *{
+    margin: 0 5%;
+}
+
+/* Logo */
+
+.lumbre {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin: 10px auto;
+    background-image: url("../img/logo1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.lumbre:hover {
+    -webkit-animation: arder .6s linear infinite;
+    -moz-animation: arder .6s linear infinite;
+    -ms-animation: arder .6s linear infinite;
+    -o-animation: arder .6s linear infinite;
+    animation: arder .6s linear infinite;
+    background-image: url("../img/logo1.png");
+}
+
+/* Botón y menú cabecera */
+
+.boton-cabecera {
+    background-color: black;
+    color: var(--font-color);
+    padding: 15px 20px;
+    font-size: 1em;
+    min-width: 130px;
+}
+
+.menu-cabecera {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.menu-cabecera-opciones {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.menu-cabecera-opciones a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    width: 175px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.menu-cabecera-opciones a:hover {
+    background-color: #ddd;
+}
+
+.menu-cabecera:hover .menu-cabecera-opciones {
+    display: block;
+}
+
+.menu-cabecera:hover .boton-cabecera {
+    background-color: var(--font-color-soft);
+    border-radius: 30px;
+}
+
+/* --- Footer --- */
+
+footer {
+    text-align: center;
+    background-color: black;
+    color: var(--font-color);
+    height: 60px;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Formulario */
+/* --- Formularios --- */
+
 form div{
     display: flex;
     flex-flow: row nowrap;
@@ -147,69 +239,15 @@ form div{
     width:40%;
 }
 
-/* Cabecera */
-header{
-    width:100%;
-    display:grid;
-    grid-template-columns: 20% 60% 20%;
+/* --- Contenido principal --- */
+
+.administracion{
+    display:flex;
+    flex-flow: column nowrap;
     align-items: center;
-    background-color: black;
-    height: 80px;
+    justify-content: center;
 }
 
-header img{
-    max-width: 50px;
-    margin: 0 auto;
-}
-
-.boton-usuario {
-    background-color: black;
-    color: var(--font-color);
-    padding: 15px 20px;
-    font-size: 1em;
-    min-width: 130px;
-}
-
-.menu-usuario {
-    position: relative;
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.menu-usuario-opciones {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #f1f1f1;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.menu-usuario-opciones a {
-    color: black;
-    padding: 15px;
-    text-decoration: none;
-    display: block;
-    cursor:pointer;
-    width:175px;
-    border-radius: 5px;
-    font-size: 0.9em;
-}
-
-.menu-usuario-opciones a:hover {
-    background-color: #ddd;
-}
-
-.menu-usuario:hover .menu-usuario-opciones {
-    display: block;
-}
-
-.menu-usuario:hover .boton-usuario {
-    background-color: var(--font-color-soft);
-    border-radius: 30px;
-}
-
-/* Página principal */
 .cabecera-admin{
     display:flex;
     flex-flow: row nowrap;
@@ -223,8 +261,8 @@ header img{
     align-items: center;
     justify-content: flex-start;
     width:100%;
-    padding: 20px;
-    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     flex-grow: 1;
 }
 
@@ -277,11 +315,13 @@ header img{
     color: var(--font-color);
 }
 
-/* Tabla */
+/* --- Tablas --- */
+
 table{
     text-align: center;
     border-spacing:0;
     width:100%;
+    background-color: var(--font-color-soft);
 }
 
 th, td{
@@ -299,6 +339,10 @@ thead th{
 
 tbody{
     cursor:pointer;
+}
+
+tbody tr{
+    padding-top: 5px;
 }
 
 tbody tr:nth-child(odd)
@@ -319,4 +363,273 @@ tbody tr:hover
 
 tbody td.smaller{
     font-size: 0.7em;
+}
+
+/* Tabla responsive */
+@media only screen and (max-width: 1024px) {
+    div.listado{
+        width: 100%;
+    }
+
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    tr {
+      margin: 0;
+    }
+    td {
+      border: none;
+      position: relative;
+      padding: 5px 10px 5px 50%;
+    }
+    td:before {
+      position: absolute;
+      top: 0;
+      left: 6px;
+      width: 45%;
+      padding: 5px 10px 5px 0;
+      white-space: nowrap;
+    }
+
+    td.admin-table:nth-of-type(1):before {
+      content: "DNI";
+    }
+    td.admin-table:nth-of-type(2):before {
+      content: "Nombre";
+    }
+    td.admin-table:nth-of-type(3):before {
+      content: "Username";
+    }
+    td.admin-table:nth-of-type(4):before {
+      content: "Email";
+    }
+    td.admin-table:nth-of-type(5):before {
+      content: "Teléfono";
+    }
+    td.admin-table:nth-of-type(6):before {
+      content: "Dirección";
+    }
+    td.admin-table:nth-of-type(7):before {
+      content: "Opciones";
+    }
+
+    td.user-table:nth-of-type(1):before {
+        content: "ID";
+    }
+    td.user-table:nth-of-type(2):before {
+        content: "Username";
+    }
+    td.user-table:nth-of-type(3):before {
+        content: "Email";
+    }
+    td.user-table:nth-of-type(4):before {
+        content: "Opciones";
+    }
+
+    tbody td.smaller{
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    td, td:before, tbody td.smaller, td button{
+        font-size: 3vw;
+    }
+}
+
+/* --- Keyframes --- */
+
+@-webkit-keyframes arder {
+    0% {
+        background-image: url("../img/logo1.png");
+    }
+
+    24% {
+        background-image: url("../img/logo1.png");
+    }
+
+    25% {
+        background-image: url("../img/logo2.png");
+    }
+
+    49% {
+        background-image: url("../img/logo2.png");
+    }
+
+    50% {
+        background-image: url("../img/logo3.png");
+    }
+
+    74% {
+        background-image: url("../img/logo3.png");
+    }
+
+    75% {
+        background-image: url("../img/logo4.png");
+    }
+
+    99% {
+        background-image: url("../img/logo4.png");
+    }
+
+    100% {
+        background-image: url("../img/logo1.png");
+    }
+}
+
+@-moz-keyframes arder {
+    0% {
+        background-image: url("../img/logo1.png");
+    }
+
+    24% {
+        background-image: url("../img/logo1.png");
+    }
+
+    25% {
+        background-image: url("../img/logo2.png");
+    }
+
+    49% {
+        background-image: url("../img/logo2.png");
+    }
+
+    50% {
+        background-image: url("../img/logo3.png");
+    }
+
+    74% {
+        background-image: url("../img/logo3.png");
+    }
+
+    75% {
+        background-image: url("../img/logo4.png");
+    }
+
+    99% {
+        background-image: url("../img/logo4.png");
+    }
+
+    100% {
+        background-image: url("../img/logo1.png");
+    }
+}
+
+@-ms-keyframes arder {
+    0% {
+        background-image: url("../img/logo1.png");
+    }
+
+    24% {
+        background-image: url("../img/logo1.png");
+    }
+
+    25% {
+        background-image: url("../img/logo2.png");
+    }
+
+    49% {
+        background-image: url("../img/logo2.png");
+    }
+
+    50% {
+        background-image: url("../img/logo3.png");
+    }
+
+    74% {
+        background-image: url("../img/logo3.png");
+    }
+
+    75% {
+        background-image: url("../img/logo4.png");
+    }
+
+    99% {
+        background-image: url("../img/logo4.png");
+    }
+
+    100% {
+        background-image: url("../img/logo1.png");
+    }
+}
+
+@-o-keyframes arder {
+    0% {
+        background-image: url("../img/logo1.png");
+    }
+
+    24% {
+        background-image: url("../img/logo1.png");
+    }
+
+    25% {
+        background-image: url("../img/logo2.png");
+    }
+
+    49% {
+        background-image: url("../img/logo2.png");
+    }
+
+    50% {
+        background-image: url("../img/logo3.png");
+    }
+
+    74% {
+        background-image: url("../img/logo3.png");
+    }
+
+    75% {
+        background-image: url("../img/logo4.png");
+    }
+
+    99% {
+        background-image: url("../img/logo4.png");
+    }
+
+    100% {
+        background-image: url("../img/logo1.png");
+    }
+}
+
+@keyframes arder {
+    0% {
+        background-image: url("../img/logo1.png");
+    }
+
+    24% {
+        background-image: url("../img/logo1.png");
+    }
+
+    25% {
+        background-image: url("../img/logo2.png");
+    }
+
+    49% {
+        background-image: url("../img/logo2.png");
+    }
+
+    50% {
+        background-image: url("../img/logo3.png");
+    }
+
+    74% {
+        background-image: url("../img/logo3.png");
+    }
+
+    75% {
+        background-image: url("../img/logo4.png");
+    }
+
+    99% {
+        background-image: url("../img/logo4.png");
+    }
+
+    100% {
+        background-image: url("../img/logo1.png");
+    }
 }

@@ -118,12 +118,12 @@ class AdministradorController extends Administrador
 					foreach (parent::get_admins_modelo() as $data) {
 					?>
 						<tr>
-							<td><?php echo $data->dni; ?> </td>
-							<td><?php echo ($data->nombre . ' ' . $data->apellidos); ?> </td>
-							<td><?php echo $data->username; ?> </td>
-							<td><?php echo $data->email; ?> </td>
-							<td><?php echo $data->telefono; ?> </td>
-							<td class="smaller"><?php 
+							<td class="admin-table"><?php echo $data->dni; ?> </td>
+							<td class="admin-table"><?php echo ($data->nombre . ' ' . $data->apellidos); ?> </td>
+							<td class="admin-table"><?php echo $data->username; ?> </td>
+							<td class="admin-table"><?php echo $data->email; ?> </td>
+							<td class="admin-table"><?php echo $data->telefono; ?> </td>
+							<td class="admin-table smaller"><?php 
 								$completo = '-';
 								$direccion = $data->direccion;
 								$poblacion = $data->poblacion;
@@ -138,7 +138,7 @@ class AdministradorController extends Administrador
 								if ($pais != null)
 									$completo .= ' ('.$pais.')';
 								echo $completo; ?> </td>
-							<td>
+							<td class="admin-table">
 								<div>
 									<button onclick="getContacto('<?php echo $data->id; ?>',
 									'<?php echo $data->telefono; ?>',
