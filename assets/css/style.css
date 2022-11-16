@@ -363,18 +363,15 @@ tbody tr{
     padding-top: 5px;
 }
 
-tbody tr:nth-child(even)
-{
+tbody tr:nth-child(even){
     background-color: transparent;
 }
 
-tbody tr:nth-child(odd)
-{
+tbody tr:nth-child(odd){
     background-color: var(--font-color-soft);
 }
 
-tbody tr:hover
-{
+tbody tr:hover{
     background-color: var(--font-color-dark);
     color: white;
 }
