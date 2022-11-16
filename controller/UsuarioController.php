@@ -107,11 +107,9 @@ class UsuarioController extends Usuario
 							<td class="user-table"><?php echo $data->id; ?> </td>
 							<td class="user-table"><?php echo $data->username; ?> </td>
 							<td class="user-table"><?php echo $data->email; ?> </td>
-							<td class="user-table">
-								<div>
-									<button onclick="getActualizacion('<?php echo $data->id; ?>','<?php echo $data->username; ?>','<?php echo $data->email; ?> ');">Actualizar</button>
-									<button onclick="deleteUsuario('<?php echo $data->id; ?>');">Borrar</button>
-								</div>
+							<td class="user-table t-opciones">
+								<button class="b-opcion-tabla" onclick="getActualizacion('<?php echo $data->id; ?>','<?php echo $data->username; ?>','<?php echo $data->email; ?> ');">Actualizar</button>
+								<button class="b-opcion-tabla" onclick="deleteUsuario('<?php echo $data->id; ?>');">Borrar</button>
 							</td>
 						</tr>
 					<?php

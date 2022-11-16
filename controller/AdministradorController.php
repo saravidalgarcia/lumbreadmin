@@ -138,16 +138,14 @@ class AdministradorController extends Administrador
 								if ($pais != null)
 									$completo .= ' ('.$pais.')';
 								echo $completo; ?> </td>
-							<td class="admin-table">
-								<div>
-									<button onclick="getContacto('<?php echo $data->id; ?>',
-									'<?php echo $data->telefono; ?>',
-									'<?php echo $data->direccion; ?>',
-									'<?php echo $data->poblacion; ?>',
-									'<?php echo $data->cp; ?>',
-									'<?php echo $data->pais; ?>');">Actualizar contacto</button>
-									<button onclick="deleteAdmin('<?php echo $data->id; ?>');">Borrar</button>
-								</div>
+							<td class="admin-table t-opciones">
+								<button class="b-opcion-tabla" onclick="getContacto('<?php echo $data->id; ?>',
+								'<?php echo $data->telefono; ?>',
+								'<?php echo $data->direccion; ?>',
+								'<?php echo $data->poblacion; ?>',
+								'<?php echo $data->cp; ?>',
+								'<?php echo $data->pais; ?>');">Actualizar contacto</button>
+								<button class="b-opcion-tabla" onclick="deleteAdmin('<?php echo $data->id; ?>');">Borrar</button>
 							</td>
 						</tr>
 					<?php
