@@ -143,9 +143,17 @@ header.cabecera > *{
     display: block;
 }
 
+.menu-cabecera .boton-cabecera {
+    background-color: var(--font-color);
+    border-radius: 30px;
+    color: black;
+    padding: 10px 20px;
+}
+
 .menu-cabecera:hover .boton-cabecera {
     background-color: var(--font-color-soft);
     border-radius: 30px;
+    color: var(--font-color);
 }
 
 /* --- Footer --- */
@@ -299,6 +307,7 @@ form div{
     display:flex;
     flex-flow: column nowrap;
     align-items:center;
+    max-width:1500px;
 }
 
 .mensaje{
