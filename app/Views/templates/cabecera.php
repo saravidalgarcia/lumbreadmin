@@ -21,5 +21,3 @@
                 <span>Empleados</span>
             </a>
         </section>
-        <section class="info">
-            <section id="cabecera-info" class="cabecera-info">

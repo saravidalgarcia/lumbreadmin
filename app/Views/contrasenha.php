@@ -4,9 +4,10 @@
     <link href="assets/img/favicon.png" rel="icon" type="image/png">
     <title>Contraseña - LumbreAdmin</title>
 <?=$cabecera?>
+<section class="info">
+            <section id="cabecera-info" class="cabecera-info">
             <h1>Actualizar contraseña</h1>
 			</section>
-			<section class="cuerpo-info">
             <div class="div-form new-form">
             <section>
                     <form name="formUpdatePassword" onsubmit="updatePassword(); return false">
@@ -21,8 +22,6 @@
                 <input type="button" class="boton" title="Volver a la página de gestión de usuarios" onclick="location.href='usuarios'" value="Volver" />
 </section>
         </div>
-
-            </section>
         </section>
 <?=$footer?>
 <script type="text/javascript" src="assets/js/general.js"></script>

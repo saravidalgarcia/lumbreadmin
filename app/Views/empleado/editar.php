@@ -4,6 +4,8 @@
     <link href="../../assets/img/favicon.png" rel="icon" type="image/png">
     <title>Actualizar contacto - LumbreAdmin</title>
 <?=$cabecera?>
+<section class="info">
+            <section id="cabecera-info" class="cabecera-info">
 				<h1>Editar información de contacto</h1>
 			</section>
 			

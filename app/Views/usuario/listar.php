@@ -4,6 +4,8 @@
     <link href="assets/img/favicon.png" rel="icon" type="image/png">
     <title>Usuarios - LumbreAdmin</title>
 <?=$cabecera?>
+<section class="info">
+            <section id="cabecera-info" class="cabecera-info">
 				<h1>Usuarios</h1>
                 <button id="crearusuario" type="button" title="Crear usuario" onclick="location.href='<?=base_url('usuario/crear')?>'">Nuevo</button>
 			</section>

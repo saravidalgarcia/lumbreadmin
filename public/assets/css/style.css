@@ -36,6 +36,11 @@ main {
     flex-grow: 1;
 }
 
+h1{
+    text-transform: uppercase;
+    font-size: 1.6em;
+}
+
 /* --- Cabecera --- */
 
 header.cabecera {
@@ -565,6 +570,41 @@ button:hover {
     align-items: center;
 }
 
+.subtitulo{
+    display:block;
+}
+
+/* Ficha de empleado */
+
+
+.ficha-empleado article{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ficha-empleado article h3{
+    grid-column: span 2;
+    background-color: var(--font-color-soft);
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    font-size: 1.3em;
+}
+
+.ficha-empleado article h4{
+    font-size: 1.1em;
+    text-align: right;
+}
+
+.ficha-empleado article p.mayus{
+    text-transform: uppercase;
+}
+
 /* Información de campañas */
 
 .campanhas {
@@ -811,13 +851,13 @@ form.form-add-personaje button {
     justify-content: flex-start;
 }
 
-/* Tabla con buscador (para personajes y razas) */
+/* Tablas */
 
 table {
     text-align: center;
     border-spacing: 0;
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
 }
 
 th,
@@ -1095,6 +1135,24 @@ form div label span.consejo {
 
     .ver-campanha li {
         font-size: 2.75vw;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .contenido{
+        display:flex;
+        flex-flow: column nowrap;
+    }
+
+    .menu-ppal{
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .info{
+        padding: 20px 3%;
     }
 }
 

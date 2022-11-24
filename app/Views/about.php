@@ -4,11 +4,15 @@
     <link href="assets/img/favicon.png" rel="icon" type="image/png">
     <title>Lumbre - Información</title>
 <?=$cabecera?>
-        <header>
+<section id="info" class="info">
+<section id="cabecera-info" class="cabecera-info">
+<header>
             <div class="lumbre-texto" title="LUMBRE" alt="Logo de LUMBRE"></div>
             <h2>Una web pensada por y para Dungeon Masters</h2>
             <p>para organizar fácilmente tus campañas, sesiones y personajes.</p>
         </header>
+			</section>
+        
         <section class="info-about">
             <article>
                 <h3>Qué es Lumbre</h3>
@@ -39,6 +43,7 @@
                 <h3><a href="login" title="Enlace a la página de inicio">Volver a la página de inicio de LumbreAdmin</a></h3>
             </article>
         </section>
+</section>
     </main>
     <footer>
         <p>Sara Vidal García | 2022 | <a href="https://lumbreadmin.es/about" title="Página de información sobre Lumbre">Lumbre</a></p>

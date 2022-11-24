@@ -4,6 +4,8 @@
     <link href="../assets/img/favicon.png" rel="icon" type="image/png">
     <title>Crear empleado - LumbreAdmin</title>
 <?=$cabecera?>
+<section class="info">
+            <section id="cabecera-info" class="cabecera-info">
 				<h1>Crear empleado</h1>
 			</section>
 			

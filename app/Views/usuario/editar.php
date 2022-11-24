@@ -4,6 +4,8 @@
     <link href="../../assets/img/favicon.png" rel="icon" type="image/png">
     <title>Actualizar usuario - LumbreAdmin</title>
 <?=$cabecera?>
+<section class="info">
+            <section id="cabecera-info" class="cabecera-info">
 				<h1>Actualizar usuario</h1>
 			</section>
 			
