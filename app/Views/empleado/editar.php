@@ -2,11 +2,11 @@
     <meta name="description" content="Página de actualización de empleado de la web de administración de Lumbre">
     <link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="../../assets/img/favicon.png" rel="icon" type="image/png">
-    <title>Actualizar contacto - LumbreAdmin</title>
+    <title>Actualizar empleado - LumbreAdmin</title>
 <?=$cabecera?>
 <section class="info">
             <section id="cabecera-info" class="cabecera-info">
-				<h1>Editar información de contacto</h1>
+				<h3>Actualizar empleado</h3>
 			</section>
 			
                 <div class="div-form new-form">
@@ -21,7 +21,7 @@
                         <br>
                         <input id="apellidos" type="text" name="apellidos" placeholder="Apellidos" value="<?=$empleado['apellidos'];?>">
                         <br>
-                        <p>Información de contacto:</p>
+                        <p>Información de contacto</p>
                         <br>
                         <input id="telefono" type="text" name="telefono" placeholder="Teléfono" value="<?=$contacto['telefono'];?>">
                         <br>

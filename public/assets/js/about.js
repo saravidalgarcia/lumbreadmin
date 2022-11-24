@@ -9,3 +9,9 @@ window.onload = () => {
     else
 	    document.getElementById("username").innerHTML = localStorage.getItem("username");
 }
+
+//Cierre de sesión
+function logout(){
+    localStorage.removeItem("username");
+    location.replace("https://lumbreadmin.es/login");
+}

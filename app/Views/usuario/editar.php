@@ -6,7 +6,7 @@
 <?=$cabecera?>
 <section class="info">
             <section id="cabecera-info" class="cabecera-info">
-				<h1>Actualizar usuario</h1>
+				<h3>Actualizar usuario</h3>
 			</section>
 			
                 <div class="div-form new-form">

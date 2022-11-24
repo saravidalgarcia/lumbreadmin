@@ -6,7 +6,7 @@
 <?=$cabecera?>
 <section class="info">
             <section id="cabecera-info" class="cabecera-info">
-				<h1>Crear usuario</h1>
+				<h3>Crear usuario</h3>
 			</section>
 			
                 <div class="div-form new-form">
