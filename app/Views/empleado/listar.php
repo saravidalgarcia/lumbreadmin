@@ -10,16 +10,18 @@
                 <button id="crearadmin" type="button" title="Crear administrador" onclick="location.href='<?=base_url('empleado/crear')?>'">Nuevo</button>
 			</section>
 			<section class="cuerpo-info">
+            <input type="text" class="buscador" id="buscador" onkeyup="buscarEnTabla(4)" placeholder="Buscar..." title="Escribe un DNI, nombre, username o email para buscar coincidencias">
+            <p class="mensaje orden-tabla" id="mensaje-error">Pulsa sobre el nombre de una columna para ordenar los resultados.</p>
             <?php
                     if (count((array)$empleados) > 0) {
                     ?>
-                        <table>
+                        <table id="tabla">
                             <thead>
                                 <tr>
-                                <th scope="col">DNI</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Email</th>
+                                <th onclick="ordenarTabla(0)" scope="col">DNI</th>
+                                <th onclick="ordenarTabla(1)" scope="col">Nombre</th>
+                                <th onclick="ordenarTabla(2)" scope="col">Username</th>
+                                <th onclick="ordenarTabla(3)" scope="col">Email</th>
                                 <th scope="col">Opciones</th>
                                 </tr>
                             </thead>

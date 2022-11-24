@@ -10,16 +10,17 @@
                 <button id="crearusuario" type="button" title="Crear usuario" onclick="location.href='<?=base_url('usuario/crear')?>'">Nuevo</button>
 			</section>
 			<section class="cuerpo-info">
-				
+            <input type="text" class="buscador" id="buscador" onkeyup="buscarEnTabla(3)" placeholder="Buscar..." title="Escribe un id, nombre o email para buscar coincidencias">
+            <p class="mensaje orden-tabla" id="mensaje-error">Pulsa sobre el nombre de una columna para ordenar los resultados.</p>
                     <?php
                     if (count((array)$usuarios) > 0) {
                     ?>
-                        <table>
+                        <table id="tabla">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Email</th>
+                                    <th onclick="ordenarTabla(0)" scope="col">ID</th>
+                                    <th onclick="ordenarTabla(1)" scope="col">Username</th>
+                                    <th onclick="ordenarTabla(2)" scope="col">Email</th>
                                     <th scope="col">Opciones</th>
                                 </tr>
                             </thead>
