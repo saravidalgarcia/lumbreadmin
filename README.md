@@ -87,7 +87,7 @@ El proyecto se ha realizado utilizando Codeigniter 4, por lo que contiene difere
 * MySQL
 
 ### Configuración  
-Se debe situar el contenido del proyecto en el directorio /var/www/html/lumbreadmin (u otro directorio con el nombre que se desee) y ejecutar el archivo "BD.sql" ubicado en la carpeta "public/assets" para cargar la base de datos. En el archivo "Database.php", que se encuentra en "app/Config/", se pueden configurar los datos de conexión con la BD.
+Se debe situar el proyecto en el directorio /var/www/html y ejecutar el archivo "BD.sql" ubicado en la ruta public/assets/ para cargar la base de datos. En el archivo "Database.php", que se encuentra en app/Config/, se pueden configurar los datos de conexión con la BD.
 
 ### Acceso
-Una vez realizados los pasos de configuración, el proyecto es accesible desde el navegador, en la dirección http://localhost/lumbreadmin (o el nombre que se le haya dado al directorio raíz dentro de /var/www/html).
+Una vez realizados los pasos de configuración, el proyecto es accesible desde el navegador, en la dirección http://localhost/lumbreadmin.
