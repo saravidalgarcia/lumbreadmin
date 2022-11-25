@@ -4,19 +4,17 @@
  * @author Sara Vidal García
  */
 
-const baseURL = "https://lumbreadmin.es/";
-
 /**
  * Se comprueba que el usuario esté autenticado y, si no es así, se le redirige a
  * la página de login
  */
 window.onload = () => {
-	if (localStorage.getItem("username") == null)
+	if (localStorage.getItem("admin") == null)
 		window.location.replace(baseURL + "login");
 	else {
 		document.getElementById("menu-ppal-usuarios").classList.add("actual");
 		document.getElementById("menu-ppal-empleados").classList.remove("actual");
-		document.getElementById("username").innerHTML = localStorage.getItem("username");
+		document.getElementById("username").innerHTML = localStorage.getItem("admin");
 	}
 }
 

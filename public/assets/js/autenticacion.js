@@ -11,7 +11,7 @@ const baseURL = "https://lumbreadmin.es/";
  * la página de gestión de usuarios
  */
 window.onload = () => {
-    if (localStorage.getItem("username") != null)
+    if (localStorage.getItem("admin") != null)
         window.location.replace(baseURL + "usuarios");
 }
 
@@ -37,7 +37,7 @@ function login() {
                 case "0": document.getElementById("mensaje-feedback").innerHTML = "El usuario introducido no existe"; break;
                 case "1": document.getElementById("mensaje-feedback").innerHTML = "Usuario o contraseña incorrectos"; break;
                 case "2":
-                    localStorage.username = username;
+                    localStorage.admin = username;
                     location.replace(baseURL + "usuarios");
                     break;
                 default: document.getElementById("mensaje-feedback").innerHTML = "Se ha producido un error";

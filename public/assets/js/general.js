@@ -11,7 +11,7 @@ const baseURL = "https://lumbreadmin.es/";
  * la página de login
  */
 window.onload = () => {
-  if (localStorage.getItem("username") == null)
+  if (localStorage.getItem("admin") == null)
     window.location.replace(baseURL + "login");
 }
 
@@ -19,7 +19,7 @@ window.onload = () => {
  * Cierra la sesión del usuario y lo redirige a la página de login
  */
 function logout() {
-  localStorage.removeItem("username");
+  localStorage.removeItem("admin");
   location.replace(baseURL + "login");
 }
 
@@ -62,7 +62,7 @@ function updatePassword() {
   let xhr = new XMLHttpRequest();
   xhr.open("POST", baseURL + "cambiarpassword", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send("username=" + localStorage.getItem("username") +
+  xhr.send("username=" + localStorage.getItem("admin") +
     "&passwd=" + passwd +
     "&passwdn=" + passwdn);
   xhr.addEventListener("readystatechange", (e) => {
