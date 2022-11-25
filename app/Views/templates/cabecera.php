@@ -1,4 +1,6 @@
-    </head>
+<?php ?>
+</head>
+
 <body>
     <header id="header-ppal" class="cabecera">
         <div class="lumbre" onclick="location.href='<?php echo base_url('/usuarios'); ?>'" title="LUMBRE" alt="Logo de LUMBRE"></div>

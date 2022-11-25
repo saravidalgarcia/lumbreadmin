@@ -33,17 +33,19 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  */
 
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
+//Ruta base
 $routes->get('/', 'AutenticacionController::index');
+
+//Control de acceso
 $routes->get('login', 'AutenticacionController::index');
 $routes->post('checklogin', 'AutenticacionController::login');
-$routes->get('about','Home::about');
-
 $routes->post('cambiarpassword', 'AutenticacionController::cambiar');
 $routes->get('password','AutenticacionController::password');
 
-//Rutas para gestión de usuarios
+//Información y contacto
+$routes->get('about','Home::about');
+
+//Gestión de usuarios
 $routes->get('usuarios', 'UsuarioController::index');
 $routes->get('usuario/crear', 'UsuarioController::crear');
 $routes->post('usuario/guardar','UsuarioController::guardar');
@@ -53,22 +55,16 @@ $routes->get('usuario/borrar/(:num)','UsuarioController::borrar/$1');
 $routes->get('getusuarios','UsuarioController::getusuarios');
 $routes->get('getusuario/(:num)','UsuarioController::getusuario/$1');
 
-//Rutas para gestión de empleados
+//Gestión de empleados
 $routes->get('empleados', 'EmpleadoController::index');
 $routes->get('empleado/crear', 'EmpleadoController::crear');
 $routes->post('empleado/guardar','EmpleadoController::guardar');
-
 $routes->get('empleado/(:num)', 'EmpleadoController::ver/$1');
-
 $routes->get('empleado/editar/(:num)', 'EmpleadoController::editar/$1');
 $routes->post('empleado/actualizar','EmpleadoController::actualizar');
 $routes->get('empleado/borrar/(:num)','EmpleadoController::borrar/$1');
 $routes->get('getempleados','EmpleadoController::getempleados');
 $routes->get('getempleado/(:num)','EmpleadoController::getempleado/$1');
-
-
-
-
 
 
 /*
