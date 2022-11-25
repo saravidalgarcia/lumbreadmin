@@ -12,6 +12,7 @@ Este proyecto es una aplicación web en PHP con el framework Codeigniter 4 y sig
 ## Estructura
 El proyecto se ha realizado utilizando Codeigniter 4, por lo que contiene diferentes archivos y carpetas de configuración autogenerados por el propio framework, que no han sido alterados. La estructura de directorios y archivos que han sido añadidos o modificados es la siguiente:
 ```bash
+.
 ├───app
 │   │
 │   ├───Config
